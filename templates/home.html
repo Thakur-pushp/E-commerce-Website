@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <link 
+      rel="stylesheet" 
+      href="/static/home.css"
+    />
+    <title>Home Page</title>
+  </head>
+  <body>
+
+    <div class="head">
+      <div class="logo">
+        <h2>LOGO</h2>
+      </div>
+      <div class="search">
+          <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search..."
+          />
+          <i class="fa-solid fa-magnifying-glass" id="search_icon"></i>
+        </div>
+        <div class="nav_bar">
+          <nav>
+            <i class="fa-solid fa-table-cells-large" id="category"></i>
+            <i class="fa-regular fa-heart" id="wishlist"></i>
+            <i class="fa-solid fa-cart-shopping" id="cart"></i>
+            <i class="fa-regular fa-circle-user"></i>
+            <input type="checkbox" id="checkbox">
+          </nav>
+        </div>
+    </div>
+
+    <div class="main">
+      <div class="welcome">
+        {% if session.get('username') %}
+          <p>Welcome, <strong>{{ session['username'] }}</strong>!</p>
+        {% else %}
+          <p>Welcome, <strong>User</strong>!</p>
+        {% endif %}
+      </div>
+    </div>
+    
+    <div class="sidebar inactive" id="sidebar">
+      <ul>
+
+        <li>
+        <i class="fa-regular fa-circle-user"></i>
+        {% if session.get('username') %}
+          <strong>{{ session['username'] }}</strong>
+          <a href="{{url_for('auth.logout')}}">Logout</a>
+        {% else %}
+          <strong>User</strong>
+          <a href="{{url_for('auth.login')}}">Login</a>
+        {% endif %}
+        </li>
+
+        <hr/>
+
+        <li>
+        <i class="fa-solid fa-circle-info"></i>
+        about us
+        </li>
+
+        <hr/>
+
+        <li>
+        <i class="fa-regular fa-envelope"></i>
+        contact us
+        </li>
+
+        <hr/>
+
+      </ul>
+    </div>
+
+    <div class="layer">
+      <div class="product"></div>
+      <div class="product"></div>
+      <div class="product"></div>
+    </div>
+
+    <div class="layer">
+      <div class="product"></div>
+      <div class="product"></div>
+      <div class="product"></div> 
+    </div>
+    
+    
+  <script src="/static/script.js"></script>
+  </body>
+</html>

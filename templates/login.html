@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="parent-container">
+    <div class="container">
+        <h2>LOGIN</h2>
+        <form action="{{url_for('auth.authentication')}}" method="post">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+            <br><br>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <br><br>
+            <p>Don't have an account <a href="{{url_for('auth.register')}}">Register</a></p>
+            <button type="submit">Login</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flashed_messages">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    </div>
+</body>
+</html>

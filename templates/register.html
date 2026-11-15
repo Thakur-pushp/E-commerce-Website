@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="parent-container">
+    <div class="container">
+        <h2>REGISTER</h2>
+        <form action="{{url_for('auth.authentication_reg')}}" method="post">
+            <label for="fullname">Full Name</label>
+            <br>
+            <input type="text" id="fullname" name="fullname">
+            <br><br>
+            <label for="email">Email</label>
+            <br>
+            <input type="email" name="email" id="email">
+            <br><br>
+            <label for="password">Password</label>
+            <br>
+            <input type="password" name="password" id="password">
+            <br><br>
+            <p>Already have an account <a href="{{url_for('auth.login')}}">Login</a></p>
+            <br><br>
+            <button type="submit">Register</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flashed_messages">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    </div>
+</body>
+</html>
