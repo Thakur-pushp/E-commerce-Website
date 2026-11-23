@@ -83,3 +83,17 @@
     float: left;
     min-height: 43vh;
 }
+
+
+#products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-offers{
+    border: 1px solid red;
+    margin: 2%;
+    height: 400px;
+    width: 700px;
+}
